@@ -1303,7 +1303,7 @@ export const HANZI_BANK: HanziChar[] = [
   { "char": "街", "pinyin": "jiē", "meaning": "街道、街区", "visualization": "左边是彳（行），右边是圭（声音）。" },
   { "char": "较", "pinyin": "jiào", "meaning": "比较、较量", "visualization": "左边是车，右边是交（声音）。" },
   { "char": "律", "pinyin": "lǜ", "meaning": "法律、规律", "visualization": "左边是彳（行），右边是聿（声音）。" },
-  { "char": "鸣", "pinyin": "míng", "meaning": "鸣叫、鸟鸣", "visualization": "左边是口，右边是鸟（声音）。" },,
+  { "char": "鸣", "pinyin": "míng", "meaning": "鸣叫、鸟鸣", "visualization": "左边是口，右边是鸟（声音）。" },
   { "char": "纪", "pinyin": "jì", "meaning": "纪念、纪律", "visualization": "左边是糸（丝线），右边是己（声音）。" },
   { "char": "富", "pinyin": "fù", "meaning": "富有、富裕", "visualization": "上面是宀（房屋），下面是畐（饱满）。" },
   { "char": "啼", "pinyin": "tí", "meaning": "啼哭、鸟啼", "visualization": "左边是口，右边是帝（声音）。" },

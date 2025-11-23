@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HANZI_BANK } from './data/hanziData.ts';
-import { AppState, HanziChar } from './types.ts';
+import { AppState } from './types.ts';
 import StartView from './components/StartView.tsx';
 import QuizView from './components/QuizView.tsx';
 import ResultsView from './components/ResultsView.tsx';

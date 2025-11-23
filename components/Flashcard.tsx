@@ -17,19 +17,20 @@ const Flashcard: React.FC<FlashcardProps> = ({ char }) => {
 
   return (
     <div 
-      className="relative w-full max-w-sm mx-auto h-[500px] cursor-pointer perspective-1000 group"
+      className="relative w-full max-w-sm mx-auto h-[500px] cursor-pointer group"
+      style={{ perspective: '1000px' }}
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <motion.div
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
-        className="w-full h-full relative preserve-3d"
+        className="w-full h-full relative"
         style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Front of Card */}
         <div 
-          className="absolute inset-0 w-full h-full bg-white rounded-[2.5rem] shadow-xl border-4 border-brand-darkPink flex flex-col items-center justify-center backface-hidden z-10"
+          className="absolute inset-0 w-full h-full bg-white rounded-[2.5rem] shadow-xl border-4 border-brand-darkPink flex flex-col items-center justify-center z-10"
           style={{ backfaceVisibility: 'hidden' }}
         >
           <div className="absolute top-6 right-6 text-brand-darkPink animate-pulse">
@@ -43,7 +44,7 @@ const Flashcard: React.FC<FlashcardProps> = ({ char }) => {
 
         {/* Back of Card */}
         <div 
-          className="absolute inset-0 w-full h-full bg-gradient-to-br from-brand-yellow to-white rounded-[2.5rem] shadow-xl border-4 border-brand-yellow flex flex-col items-center justify-center p-8 backface-hidden"
+          className="absolute inset-0 w-full h-full bg-gradient-to-br from-brand-yellow to-white rounded-[2.5rem] shadow-xl border-4 border-brand-yellow flex flex-col items-center justify-center p-8"
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
           <div className="w-full text-center space-y-6">

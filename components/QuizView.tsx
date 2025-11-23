@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, ArrowLeft } from 'lucide-react';
-import Flashcard from './Flashcard';
-import { HanziChar } from '../types';
+import Flashcard from './Flashcard.tsx';
+import { HanziChar } from '../types.ts';
 
 interface QuizViewProps {
   currentSet: HanziChar[];

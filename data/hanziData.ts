@@ -1,4 +1,4 @@
-import { HanziChar } from '../types';
+import { HanziChar } from '../types.ts';
 
 export const HANZI_BANK: HanziChar[] = [
   { "char": "果", "pinyin": "guǒ", "meaning": "果实、结果", "visualization": "像树上结出的果子。" },
@@ -202,7 +202,7 @@ export const HANZI_BANK: HanziChar[] = [
   { "char": "会", "pinyin": "huì", "meaning": "会、会议、能够", "visualization": "像一个盛放东西的器皿。" },
   { "char": "他", "pinyin": "tā", "meaning": "他、男性第三人称", "visualization": "左边是人，右边是也。" },
   { "char": "灰", "pinyin": "huī", "meaning": "灰色、灰尘", "visualization": "左边是火，表示火的残余物。" },
-  { "char": "黄", "pinyin": "huáng", "meaning": "黄色、黄河", "visualization": "像一个人佩戴的玉佩。" },
+  { "char": "黄", "pinyin": "huáng", "meaning": "黄色、黄河", "visualization": "像一个人佩戴玉佩。" },
   { "char": "棕", "pinyin": "zōng", "meaning": "棕色、棕榈", "visualization": "左边是木，表示树木的颜色。" },
   { "char": "蓝", "pinyin": "lán", "meaning": "蓝色", "visualization": "上面是草，下面是监（深水）" },
   { "char": "紫", "pinyin": "zǐ", "meaning": "紫色", "visualization": "上面是此，下面是丝。" },

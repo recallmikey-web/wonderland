@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Play, Database, RefreshCw, BookOpen } from 'lucide-react';
-import { HANZI_BANK } from '../data/hanziData';
+import { HANZI_BANK } from '../data/hanziData.ts';
 
 interface StartViewProps {
   onStart: () => void;

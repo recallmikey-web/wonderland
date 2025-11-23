@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HanziChar } from '../types';
-import { Lightbulb, Volume2 } from 'lucide-react';
+import { HanziChar } from '../types.ts';
+import { Lightbulb } from 'lucide-react';
 
 interface FlashcardProps {
   char: HanziChar;

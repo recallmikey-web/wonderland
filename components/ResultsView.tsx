@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Home, Trash2, RotateCcw, Trophy } from 'lucide-react';
-import { HanziChar } from '../types';
+import { HanziChar } from '../types.ts';
 
 interface ResultsViewProps {
   sessionForgotten: HanziChar[];
@@ -33,73 +33,85 @@ const ResultsView: React.FC<ResultsViewProps> = ({
           </div>
         ) : null}
         <h2 className="text-4xl font-black text-gray-800 mb-4">
-          {isPerfect ? '太棒了！完美通关！🎉' : '本轮学习结束！'}
+          {isPerfect ? "太棒了！全部记住啦！" : "学习完成！"}
         </h2>
-        <p className="text-xl text-gray-500">来看看你的学习成果。</p>
+        <p className="text-xl text-gray-500 font-medium">
+          本次复习了 {sessionForgotten.length === 0 ? "全部" : "部分"} 汉字
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-        {/* Session Stats */}
-        <div className="bg-white rounded-[2rem] p-8 shadow-xl border-4 border-red-100">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="bg-white p-8 rounded-3xl shadow-lg border-2 border-red-100">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-bold text-gray-700">本轮未掌握</h3>
-            <span className="bg-red-100 text-red-600 font-black px-4 py-1 rounded-full">{sessionForgotten.length}</span>
+            <h3 className="text-2xl font-bold text-gray-800">本次需加强</h3>
+            <span className="bg-red-100 text-red-600 font-black px-4 py-2 rounded-full">
+              {sessionForgotten.length}
+            </span>
           </div>
-          
           {sessionForgotten.length > 0 ? (
-            <div className="flex flex-wrap gap-3">
-              {sessionForgotten.map((char, idx) => (
-                <div key={idx} className="w-16 h-16 bg-red-50 rounded-xl flex items-center justify-center text-3xl font-black text-red-500 border-2 border-red-200">
+            <div className="grid grid-cols-4 sm:grid-cols-5 gap-4">
+              {sessionForgotten.map((char, i) => (
+                <div key={i} className="aspect-square bg-red-50 rounded-xl flex items-center justify-center text-2xl font-black text-red-500 border border-red-100">
                   {char.char}
                 </div>
               ))}
             </div>
           ) : (
-             <div className="h-32 flex items-center justify-center text-gray-400 italic">
-               全部掌握！你是小明星！🌟
-             </div>
+            <div className="text-center py-8 text-gray-400 font-medium">
+              没有未记住的字，真棒！
+            </div>
           )}
         </div>
 
-        {/* Total Persistent Stats */}
-        <div className="bg-white rounded-[2rem] p-8 shadow-xl border-4 border-blue-100">
+        <div className="bg-white p-8 rounded-3xl shadow-lg border-2 border-indigo-100">
           <div className="flex items-center justify-between mb-6">
-             <h3 className="text-2xl font-bold text-gray-700">累计复习库</h3>
-             <span className="bg-blue-100 text-blue-600 font-black px-4 py-1 rounded-full">{persistentForgotten.length}</span>
+            <h3 className="text-2xl font-bold text-gray-800">生词本</h3>
+            <span className="bg-indigo-100 text-indigo-600 font-black px-4 py-2 rounded-full">
+              {persistentForgotten.length}
+            </span>
           </div>
-          
-          <div className="flex flex-wrap gap-3 max-h-[300px] overflow-y-auto custom-scrollbar">
-            {persistentForgotten.map((char, idx) => (
-              <div key={idx} className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-2xl font-bold text-blue-500 border border-blue-200">
-                {char}
-              </div>
-            ))}
-            {persistentForgotten.length === 0 && (
-              <div className="w-full h-32 flex items-center justify-center text-gray-400 italic">
-                复习库是空的，真棒！
-              </div>
-            )}
-          </div>
+          {persistentForgotten.length > 0 ? (
+            <div className="grid grid-cols-4 sm:grid-cols-5 gap-4 max-h-[200px] overflow-y-auto pr-2 custom-scrollbar">
+              {persistentForgotten.map((char, i) => (
+                <div key={i} className="aspect-square bg-indigo-50 rounded-xl flex items-center justify-center text-2xl font-black text-indigo-500 border border-indigo-100">
+                  {char}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8 text-gray-400 font-medium">
+              生词本空空如也
+            </div>
+          )}
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
-         <button onClick={onRestart} className="flex items-center justify-center gap-2 px-8 py-4 bg-brand-darkPink hover:bg-pink-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-            <RotateCcw size={20} />
-            再来一轮
-         </button>
-         
-         <button onClick={onHome} className="flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-gray-700 font-bold rounded-full shadow-lg border-2 border-gray-100 transition-all hover:-translate-y-1">
-            <Home size={20} />
-            返回首页
-         </button>
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button 
+          onClick={onHome}
+          className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-white border-2 border-gray-200 text-gray-600 rounded-full font-bold hover:bg-gray-50 transition-colors"
+        >
+          <Home size={20} />
+          返回首页
+        </button>
+        
+        {persistentForgotten.length > 0 && (
+          <button 
+            onClick={onClear}
+            className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-white border-2 border-red-200 text-red-500 rounded-full font-bold hover:bg-red-50 transition-colors"
+          >
+            <Trash2 size={20} />
+            清空生词本
+          </button>
+        )}
 
-         {persistentForgotten.length > 0 && (
-           <button onClick={onClear} className="flex items-center justify-center gap-2 px-8 py-4 bg-gray-200 hover:bg-gray-300 text-gray-600 font-bold rounded-full shadow-lg transition-all hover:-translate-y-1">
-              <Trash2 size={20} />
-              清空记录
-           </button>
-         )}
+        <button 
+          onClick={onRestart}
+          className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-bold hover:scale-105 transition-transform shadow-lg"
+        >
+          <RotateCcw size={20} />
+          再来一组
+        </button>
       </div>
     </motion.div>
   );

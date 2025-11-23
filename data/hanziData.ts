@@ -2059,7 +2059,7 @@ export const HANZI_BANK: HanziChar[] = [
   { "char": "栊", "pinyin": "lóng", "meaning": "窗栊、门栊", "visualization": "左边是木，右边是龙（声音）。" },
   { "char": "斋", "pinyin": "zhāi", "meaning": "斋戒、书斋", "visualization": "上面是齐，表示整洁。" },
   { "char": "刃", "pinyin": "rèn", "meaning": "刀刃、刀锋", "visualization": "像一把刀的刀刃部分。" },
-  { "char": "镞", "pīn yīn": "zú", "meaning": "箭头、箭镞", "visualization": "左边是金，右边是族（声音）。" },
+  { "char": "镞", "pinyin": "zú", "meaning": "箭头、箭镞", "visualization": "左边是金，右边是族（声音）。" },
   { "char": "嘎", "pinyin": "gā", "meaning": "嘎（鸟叫、笑声）", "visualization": "左边是口，右边是戛（声音）。" },
   { "char": "辘", "pinyin": "lù", "meaning": "辘轳、车辘", "visualization": "左边是车，右边是鹿（声音）。" },
   { "char": "轳", "pinyin": "lú", "meaning": "辘轳、车轳", "visualization": "左边是车，右边是户（声音）。" },

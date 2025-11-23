@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { HANZI_BANK } from './data/hanziData';
-import { AppState, HanziChar } from './types';
-import StartView from './components/StartView';
-import QuizView from './components/QuizView';
-import ResultsView from './components/ResultsView';
+import { HANZI_BANK } from './data/hanziData.ts';
+import { AppState, HanziChar } from './types.ts';
+import StartView from './components/StartView.tsx';
+import QuizView from './components/QuizView.tsx';
+import ResultsView from './components/ResultsView.tsx';
 
 const CHARS_PER_SET = 20;
 const STORAGE_KEY = 'hanzi_forgotten_list_v2';

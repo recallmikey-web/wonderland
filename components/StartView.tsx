@@ -1,15 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Play, Database, RefreshCw, BookOpen } from 'lucide-react';
+import { Play, Database, RefreshCw, BookOpen, GraduationCap } from 'lucide-react';
 import { HANZI_BANK } from '../data/hanziData.ts';
 
 interface StartViewProps {
   onStart: () => void;
+  onReview: () => void;
   persistentCount: number;
   onGoToResults: () => void;
 }
 
-const StartView: React.FC<StartViewProps> = ({ onStart, persistentCount, onGoToResults }) => {
+const StartView: React.FC<StartViewProps> = ({ onStart, onReview, persistentCount, onGoToResults }) => {
+  const hasReviewItems = persistentCount > 0;
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }} 
@@ -39,19 +42,31 @@ const StartView: React.FC<StartViewProps> = ({ onStart, persistentCount, onGoToR
         <div className="bg-white p-6 rounded-3xl shadow-lg border-2 border-red-200 flex flex-col items-center cursor-pointer hover:bg-red-50 transition-colors" onClick={onGoToResults}>
           <div className="flex items-center gap-3 text-red-400 mb-2">
             <RefreshCw size={24} />
-            <span className="font-bold text-lg">需复习</span>
+            <span className="font-bold text-lg">生词本</span>
           </div>
           <p className="text-4xl font-black text-red-500">{persistentCount}</p>
         </div>
       </div>
 
-      <button 
-        onClick={onStart}
-        className="group relative inline-flex items-center justify-center px-8 py-5 text-lg font-black text-white transition-all duration-200 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-500 hover:scale-105 shadow-xl hover:shadow-2xl"
-      >
-        <Play className="mr-3 fill-current" />
-        开始学习
-      </button>
+      <div className="flex flex-col md:flex-row gap-6 w-full max-w-2xl justify-center">
+        <button 
+          onClick={onStart}
+          className="group flex-1 relative inline-flex items-center justify-center px-8 py-5 text-lg font-black text-white transition-all duration-200 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-500 hover:scale-105 shadow-xl hover:shadow-2xl"
+        >
+          <Play className="mr-3 fill-current" />
+          学习新字 (50)
+        </button>
+
+        {hasReviewItems && (
+          <button 
+            onClick={onReview}
+            className="group flex-1 relative inline-flex items-center justify-center px-8 py-5 text-lg font-black text-white transition-all duration-200 bg-gradient-to-r from-red-400 to-pink-500 rounded-full focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-pink-500 hover:scale-105 shadow-xl hover:shadow-2xl"
+          >
+            <GraduationCap className="mr-3" />
+            复习生词 ({persistentCount})
+          </button>
+        )}
+      </div>
     </motion.div>
   );
 };
